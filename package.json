@@ -1,0 +1,28 @@
+{
+  "name": "AI Resume Builder",
+  "version": "1.0.0",
+  "description": "A modern AI-powered resume builder with beautiful templates and instant PDF download",
+  "main": "builder.html",
+  "scripts": {
+    "dev": "live-server",
+    "build": "echo \"Build complete\"",
+    "lint": "echo \"No linting configured\"",
+    "test": "node test/validate.js"
+  },
+  "keywords": [
+    "resume",
+    "builder",
+    "ai",
+    "pdf"
+  ],
+  "author": "ResumeAI Pro",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/resumeai/pro"
+  },
+  "bugs": {
+    "url": "https://github.com/resumeai/pro/issues"
+  },
+  "homepage": "https://resumeai.pro"
+}

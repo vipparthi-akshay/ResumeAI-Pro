@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Executive Resume Template -->
+  <defs>
+    <style>
+      .header { fill: #1F2937; }
+      .text { fill: #374151; }
+      .accent { fill: #D97706; }
+      .highlight { fill: #FBBF24; }
+      .line { stroke: #D1D5DB; stroke-width: 2; }
+      .circle { fill: #1F2937; }
+    </style>
+  </defs>
+  
+  <!-- Template Container -->
+  <rect width="400" height="600" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="2"/>
+  
+  <!-- Header Section -->
+  <rect x="0" y="0" width="400" height="100" class="header"/>
+  
+  <!-- Name and Title -->
+  <text x="200" y="45" font-family="Georgia, serif" font-size="24" font-weight="bold" text-anchor="middle" class="text">John Doe</text>
+  <text x="200" y="70" font-family="Georgia, serif" font-size="14" text-anchor="middle" class="text">Senior Executive</text>
+  
+  <!-- Contact Info -->
+  <text x="200" y="95" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" class="text">ExecutiveDirector@company.com</text>
+  <text x="200" y="110" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" class="text">+1 987 654 3210</text>
+  
+  <!-- Executive Summary -->
+  <rect x="50" y="130" width="300" height="80" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="55" y="155" font-family="Arial, sans-serif" font-size="12" font-weight="bold" class="text">Executive Summary</text>
+  <text x="55" y="175" font-family="Arial, sans-serif" font-size="11" class="text">Strategic leader with 15+ years experience in Fortune 500 companies...</text>
+  
+  <!-- Leadership Skills -->
+  <rect x="50" y="230" width="300" height="40" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="55" y="255" font-family="Arial, sans-serif" font-size="12" font-weight="bold" class="text">Leadership Skills</text>
+  <rect x="55" y="275" width="80" height="20" fill="#D97706"/>
+  <text x="60" y="287" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF">Strategic Planning</text>
+  <rect x="145" y="275" width="80" height="20" fill="#D97706"/>
+  <text x="150" y="287" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF">Team Management</text>
+  <rect x="235" y="275" width="80" height="20" fill="#D97706"/>
+  <text x="240" y="287" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF">Budget Control</text>
+  
+  <!-- Achievements -->
+  <rect x="50" y="330" width="300" height="60" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="55" y="355" font-family="Arial, sans-serif" font-size="12" font-weight="bold" class="text">Key Achievements</text>
+  <text x="55" y="370" font-family="Arial, sans-serif" font-size="10" class="text">• Increased revenue by 40% in 2 years</text>
+  <text x="55" y="385" font-family="Arial, sans-serif" font-size="10" class="text">• Led team of 50+ professionals</text>
+  <text x="55" y="400" font-family="Arial, sans-serif" font-size="10" class="text">• Awarded CEO of the Year 2023</text>
+  
+  <!-- Education -->
+  <rect x="50" y="410" width="300" height="50" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="55" y="435" font-family="Arial, sans-serif" font-size="12" font-weight="bold" class="text">Education</text>
+  <text x="55" y="450" font-family="Arial, sans-serif" font-size="11" class="text">MBA | Harvard Business School</text>
+  <text x="55" y="465" font-family="Arial, sans-serif" font-size="10" class="text">Graduated: 2018</text>
+  
+  <!-- Footer -->
+  <rect x="0" y="580" width="400" height="20" fill="#F3F4F6"/>
+  <text x="200" y="592" font-family="Arial, sans-serif" font-size="8" class="text" text-anchor="middle">Executive Resume Template</text>
+</svg>

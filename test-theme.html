@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme System Test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 40px;
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            color: var(--text-primary);
+        }
+        
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+        }
+        
+        .test-status {
+            font-weight: 600;
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            margin: 10px 0;
+        }
+        
+        .test-status.pass {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+        
+        .test-status.fail {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--error);
+        }
+        
+        .test-status.info {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .btn-test {
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-base) ease;
+        }
+        
+        .btn-test:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-test:active {
+            transform: translateY(0);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar h1 {
+            color: var(--text-primary);
+            margin: 0;
+            font-size: 20px;
+        }
+        
+        #themeToggle {
+            padding: 8px 16px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 18px;
+            transition: all var(--transition-base) ease;
+        }
+        
+        #themeToggle:hover {
+            background-color: var(--bg-tertiary);
+        }
+        
+        code {
+            background-color: var(--bg-secondary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>🎨 Theme System Test</h1>
+        <button id="themeToggle" title="Toggle theme">🌙</button>
+    </div>
+    
+    <div class="test-container">
+        <h2>Theme Manager Test Suite</h2>
+        
+        <div class="test-section">
+            <h3>1. Theme Classes Test</h3>
+            <div id="test-classes"></div>
+            <div class="controls">
+                <button class="btn-test" onclick="testThemeClasses()">Test Theme Classes</button>
+                <button class="btn-test" onclick="testLightMode()">Set Light Mode</button>
+                <button class="btn-test" onclick="testDarkMode()">Set Dark Mode</button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>2. CSS Variables Test</h3>
+            <div id="test-css-vars"></div>
+            <button class="btn-test" onclick="testCSSVariables()">Test CSS Variables</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>3. LocalStorage Persistence Test</h3>
+            <div id="test-storage"></div>
+            <div class="controls">
+                <button class="btn-test" onclick="testLocalStoragePersistence()">Test Persistence</button>
+                <button class="btn-test" onclick="clearLocalStorage()">Clear Storage</button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>4. Toggle Button Icons Test</h3>
+            <div id="test-icons"></div>
+            <button class="btn-test" onclick="testToggleIcons()">Test Icons</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>5. System Preference Test</h3>
+            <div id="test-system-pref"></div>
+            <button class="btn-test" onclick="testSystemPreference()">Test System Preference</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>6. Theme Transition Test</h3>
+            <div id="test-transition"></div>
+            <button class="btn-test" onclick="testTransitions()">Test Transitions</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>7. Custom Event Test</h3>
+            <div id="test-events"></div>
+            <button class="btn-test" onclick="testCustomEvents()">Test Custom Events</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>8. API Methods Test</h3>
+            <div id="test-api"></div>
+            <button class="btn-test" onclick="testAPIMethods()">Test API Methods</button>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script>
+        // Test utilities
+        function addTestResult(elementId, passed, message) {
+            const element = document.getElementById(elementId);
+            const status = document.createElement('div');
+            status.className = `test-status ${passed ? 'pass' : 'fail'}`;
+            status.textContent = (passed ? '✓ ' : '✗ ') + message;
+            element.appendChild(status);
+        }
+
+        function addTestInfo(elementId, message) {
+            const element = document.getElementById(elementId);
+            const status = document.createElement('div');
+            status.className = 'test-status info';
+            status.textContent = 'ℹ ' + message;
+            element.appendChild(status);
+        }
+
+        // Test functions
+        function testThemeClasses() {
+            const testEl = document.getElementById('test-classes');
+            testEl.innerHTML = '';
+            
+            const hasLight = document.documentElement.classList.contains('theme-light');
+            const hasDark = document.documentElement.classList.contains('theme-dark');
+            const hasOneClass = (hasLight || hasDark) && !(hasLight && hasDark);
+            
+            addTestResult('test-classes', hasOneClass, 'HTML element has either theme-light or theme-dark class');
+            addTestInfo('test-classes', `Current classes: ${document.documentElement.className}`);
+        }
+
+        function testCSSVariables() {
+            const testEl = document.getElementById('test-css-vars');
+            testEl.innerHTML = '';
+            
+            const computedStyle = window.getComputedStyle(document.documentElement);
+            const bgPrimary = computedStyle.getPropertyValue('--bg-primary').trim();
+            const textPrimary = computedStyle.getPropertyValue('--text-primary').trim();
+            const border = computedStyle.getPropertyValue('--border').trim();
+            
+            const hasVars = bgPrimary && textPrimary && border;
+            addTestResult('test-css-vars', hasVars, 'CSS variables are defined and accessible');
+            addTestInfo('test-css-vars', `Background: ${bgPrimary}, Text: ${textPrimary}, Border: ${border}`);
+        }
+
+        function testLocalStoragePersistence() {
+            const testEl = document.getElementById('test-storage');
+            testEl.innerHTML = '';
+            
+            const stored = localStorage.getItem('theme-preference');
+            const inStorage = stored !== null;
+            
+            addTestResult('test-storage', inStorage, 'Theme preference is stored in localStorage');
+            addTestInfo('test-storage', `Stored theme: ${stored || 'none'}`);
+        }
+
+        function testToggleIcons() {
+            const testEl = document.getElementById('test-icons');
+            testEl.innerHTML = '';
+            
+            const toggleBtn = document.getElementById('themeToggle');
+            const isDark = window.themeManager.isDark();
+            const expectedIcon = isDark ? '☀️' : '🌙';
+            const actualIcon = toggleBtn.textContent;
+            const hasCorrectIcon = actualIcon === expectedIcon;
+            
+            addTestResult('test-icons', hasCorrectIcon, 'Toggle button has correct icon');
+            addTestInfo('test-icons', `Current theme: ${window.themeManager.getTheme()}, Icon: ${actualIcon}`);
+            
+            const hasAriaLabel = toggleBtn.hasAttribute('aria-label');
+            addTestResult('test-icons', hasAriaLabel, 'Toggle button has accessibility label');
+        }
+
+        function testSystemPreference() {
+            const testEl = document.getElementById('test-system-pref');
+            testEl.innerHTML = '';
+            
+            const systemPreference = window.themeManager.getSystemPreference();
+            const hasPreference = systemPreference === 'light' || systemPreference === 'dark';
+            
+            addTestResult('test-system-pref', hasPreference, 'System preference detection works');
+            addTestInfo('test-system-pref', `System prefers: ${systemPreference}`);
+        }
+
+        function testTransitions() {
+            const testEl = document.getElementById('test-transition');
+            testEl.innerHTML = '';
+            
+            const hasTransitionClass = document.documentElement.classList.contains('theme-transitioning');
+            addTestInfo('test-transition', `Transition class will be applied during theme change`);
+            addTestInfo('test-transition', `Click buttons to see smooth transitions in action`);
+            
+            // Test applying theme with transition
+            const currentTheme = window.themeManager.getTheme();
+            window.themeManager.applyTheme(currentTheme, true);
+            
+            setTimeout(() => {
+                const transitionRemoved = !document.documentElement.classList.contains('theme-transitioning');
+                addTestResult('test-transition', transitionRemoved, 'Transition class is properly managed');
+            }, 350);
+        }
+
+        let eventFired = false;
+        function testCustomEvents() {
+            const testEl = document.getElementById('test-events');
+            testEl.innerHTML = '';
+            
+            eventFired = false;
+            
+            document.addEventListener('themeChange', (e) => {
+                eventFired = true;
+                addTestInfo('test-events', `Event fired! Theme: ${e.detail.theme}, isDark: ${e.detail.isDark}`);
+            });
+            
+            window.themeManager.toggle();
+            
+            setTimeout(() => {
+                addTestResult('test-events', eventFired, 'Custom themeChange event is dispatched');
+            }, 100);
+        }
+
+        function testAPIMethods() {
+            const testEl = document.getElementById('test-api');
+            testEl.innerHTML = '';
+            
+            // Test getTheme()
+            const theme = window.themeManager.getTheme();
+            const hasGetTheme = theme === 'light' || theme === 'dark';
+            addTestResult('test-api', hasGetTheme, 'getTheme() returns valid theme');
+            
+            // Test isDark()
+            const isDark = window.themeManager.isDark();
+            const correctIsDark = isDark === (theme === 'dark');
+            addTestResult('test-api', correctIsDark, 'isDark() returns correct value');
+            
+            // Test setLight()
+            window.themeManager.setLight();
+            addTestInfo('test-api', 'setLight() called');
+            
+            // Test setDark()
+            window.themeManager.setDark();
+            addTestInfo('test-api', 'setDark() called');
+            
+            // Test resetToSystemPreference()
+            addTestInfo('test-api', 'resetToSystemPreference() available');
+        }
+
+        function testLightMode() {
+            window.themeManager.setLight();
+        }
+
+        function testDarkMode() {
+            window.themeManager.setDark();
+        }
+
+        function clearLocalStorage() {
+            try {
+                localStorage.removeItem('theme-preference');
+                addTestInfo('test-storage', 'LocalStorage cleared - theme will use system preference');
+            } catch (e) {
+                addTestResult('test-storage', false, 'Failed to clear localStorage');
+            }
+        }
+
+        // Run initial tests on load
+        window.addEventListener('load', () => {
+            testThemeClasses();
+            testCSSVariables();
+            testLocalStoragePersistence();
+            testToggleIcons();
+            testSystemPreference();
+        });
+    </script>
+</body>
+</html>

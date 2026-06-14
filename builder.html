@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI Pro | Resume Builder</title>
+    <link rel="stylesheet" href="css/builder.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">📄</span>
+                    ResumeAI Pro
+                </div>
+                <div class="header-actions">
+                    <button class="btn-secondary theme-toggle" onclick="window.themeManager.toggle()">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="btn-primary" onclick="window.resumeApp.saveResume()">
+                        <i class="fas fa-save"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div class="builder-container">
+                <div class="left-panel">
+                    <div class="panel-header">
+                        <h2>Build Your Resume</h2>
+                        <div class="progress-indicator">
+                            <div class="progress-bar">
+                                <div class="progress-bar-fill" id="progressBarFill"></div>
+                            </div>
+                            <span class="progress-text" id="progressText">0% Completed</span>
+                        </div>
+                    </div>
+
+                    <div class="form-sections">
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <span class="section-icon">👤</span>
+                                Personal Information
+                            </h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" placeholder="john@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" placeholder="+1 234 567 8900">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin">LinkedIn Profile</label>
+                                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/johndoe">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="summary">Professional Summary</label>
+                                    <textarea id="summary" placeholder="Write a compelling professional summary..." rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <span class="section-icon">🎓</span>
+                                Education
+                            </h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="degree">Degree</label>
+                                    <input type="text" id="degree" placeholder="B.Sc Computer Science">
+                                </div>
+                                <div class="form-group">
+                                    <label for="college">College/University</label>
+                                    <input type="text" id="college" placeholder="MIT">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cgpa">CGPA/Percentage</label>
+                                    <input type="text" id="cgpa" placeholder="8.5/10">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <span class="section-icon">🛠️</span>
+                                Skills
+                            </h3>
+                            <div class="form-group">
+                                <label for="skills">Technical Skills</label>
+                                <input type="text" id="skills" placeholder="React, Node.js, Python, SQL">
+                                <div class="skills-suggestions">
+                                    <span class="suggestion-tag">JavaScript</span>
+                                    <span class="suggestion-tag">Python</span>
+                                    <span class="suggestion-tag">HTML/CSS</span>
+                                    <span class="suggestion-tag">Node.js</span>
+                                    <span class="suggestion-tag">React</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <span class="section-icon">💼</span>
+                                Experience
+                            </h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="company">Company Name</label>
+                                    <input type="text" id="company" placeholder="Tech Corp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">Job Role</label>
+                                    <input type="text" id="role" placeholder="Senior Developer">
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration">Duration</label>
+                                    <input type="text" id="duration" placeholder="Jan 2020 - Present">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <span class="section-icon">📂</span>
+                                Projects
+                            </h3>
+                            <div class="form-group">
+                                <label for="project">Project Name</label>
+                                <input type="text" id="project" placeholder="ResumeAI Pro">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <span class="section-icon">🌍</span>
+                                Languages
+                            </h3>
+                            <div class="form-group">
+                                <label for="languages">Languages</label>
+                                <input type="text" id="languages" placeholder="English, Spanish, French">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="section-title">
+                                <span class="section-icon">🏆</span>
+                                Certificates
+                            </h3>
+                            <div class="form-group">
+                                <label for="certificate">Certificate</label>
+                                <input type="text" id="certificate" placeholder="AWS Certified Developer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="section-title">
+                            <span class="section-icon">📸</span>
+                            Profile Photo
+                        </h3>
+                        <div class="photo-upload-container">
+                            <div class="photo-preview">
+                                <img id="previewPhoto" src="images/avatars/avatar-1.svg" alt="Profile">
+                            </div>
+                            <div class="photo-upload">
+                                <input type="file" id="photoUpload" accept="image/jpeg,image/png,image/jpg,image/webp">
+                                <label for="photoUpload" class="upload-btn">
+                                    <i class="fas fa-upload"></i>
+                                    Upload Photo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="resume-preview">
+                        <div class="preview-header">
+                            <h2>Live Preview</h2>
+                            <div class="preview-actions">
+                                <button class="btn-secondary" onclick="window.pdfGenerator.downloadPDF()">
+                                    <i class="fas fa-download"></i>
+                                    Download PDF
+                                </button>
+                                <button class="btn-primary" onclick="window.resumeApp.generateAIContent()">
+                                    <i class="fas fa-magic"></i>
+                                    AI Generate
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="resume" id="resume">
+                            <div class="resume-header">
+                                <div class="resume-photo">
+                                    <img id="resumePhoto" src="images/avatars/avatar-1.svg" alt="Profile">
+                                </div>
+                                <div class="resume-info">
+                                    <h1 id="previewName">Your Name</h1>
+                                    <div class="resume-title" id="previewRole">Frontend Developer</div>
+                                    <div class="resume-contact">
+                                        <p id="previewEmail">email@example.com</p>
+                                        <p id="previewPhone">+91 9876543210</p>
+                                        <p id="previewLinkedin">linkedin.com/in/yourprofile</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2>Professional Summary</h2>
+                                <p id="previewSummary">Your summary appears here...</p>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2>Education</h2>
+                                <p id="previewEducation">Degree | College | CGPA</p>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2>Skills</h2>
+                                <p id="previewSkills">HTML • CSS • JavaScript</p>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2>Experience</h2>
+                                <p id="previewExperience">Company | Role</p>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2>Projects</h2>
+                                <p id="previewProject">Project Name</p>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2>Languages</h2>
+                                <p id="previewLanguages">English, Spanish</p>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2>Certificates</h2>
+                                <p id="previewCertificate">Certificate Name</p>
+                            </div>
+
+                            <div class="resume-footer">
+                                <p>Generated with ResumeAI Pro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="builder-footer">
+                <button class="btn-secondary" onclick="window.resumeApp.clearResume()">
+                    <i class="fas fa-trash"></i>
+                    Clear Resume
+                </button>
+                <button class="btn-primary" onclick="window.resumeApp.saveResume()">
+                    <i class="fas fa-save"></i>
+                    Save Resume
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/pdf.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/builder.js"></script>
+    <script src="js/ai.js"></script>
+</body>
+</html>
