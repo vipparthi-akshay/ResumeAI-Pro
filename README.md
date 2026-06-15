@@ -1,3 +1,15 @@
+<div align="center">
+
+# 🚀 ResumeAI Pro
+
+### AI Powered Resume Builder
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Try_Now-2563EB?style=for-the-badge)](https://vipparthi-akshay.github.io/ResumeAI-Pro/)
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/vipparthi-akshay/ResumeAI-Pro)
+
+</div>
+
 # AI Resume Builder - Professional Enhancement
 
 ## Overview
@@ -15,27 +27,33 @@ This is a modern, AI-powered resume builder with beautiful templates, live previ
 ### 1. Professional Images & Visuals
 
 **Hero Backgrounds:**
+
 - `images/hero/hero-background.jpg` - Professional tech-themed background
 - `images/backgrounds/tech-background.jpg` - Modern workspace atmosphere
 
 **Profile Avatars:**
+
 - `images/avatars/avatar-1.jpg` to `avatar-5.jpg` - Professional headshots
 
 **Dashboard Mockup:**
+
 - `images/dashboard/dashboard-mockup.jpg` - Professional dashboard interface
 
 **Template Previews:**
+
 - SVG templates: `images/templates/modern-template.svg`, `executive-template.svg`, `creative-template.svg`
 
 ### 2. Enhanced UI/UX
 
 **Smooth Animations:**
+
 - Button hover effects with shimmer animation
 - Card hover effects with lift and glow
 - Progress indicators with smooth transitions
 - Theme toggle with smooth color transitions
 
 **Professional Components:**
+
 - Enhanced feature cards with gradient headers
 - Improved pricing cards with popular badge
 - Professional testimonials section with quote icons
@@ -44,6 +62,7 @@ This is a modern, AI-powered resume builder with beautiful templates, live previ
 ### 3. Visual Hierarchy Improvements
 
 **Color Scheme:**
+
 - Primary: #2563eb (professional blue)
 - Secondary: #64748b (neutral gray)
 - Success: #10b981 (green)
@@ -51,6 +70,7 @@ This is a modern, AI-powered resume builder with beautiful templates, live previ
 - Error: #ef4444 (red)
 
 **Typography:**
+
 - Headings: Inter font family with weight hierarchy
 - Body: Inter with proper line-height and readability
 - Labels: 14px medium weight for clarity
@@ -58,11 +78,13 @@ This is a modern, AI-powered resume builder with beautiful templates, live previ
 ### 4. Responsive Design
 
 **Breakpoints:**
+
 - Desktop: 1024px and above
 - Tablet: 768px to 1023px
 - Mobile: below 768px
 
 **Adaptive Layouts:**
+
 - Grid layouts that adapt to screen size
 - Flexible typography scaling
 - Touch-friendly buttons and interactions
@@ -72,12 +94,14 @@ This is a modern, AI-powered resume builder with beautiful templates, live previ
 ### CSS Improvements
 
 **Modern CSS Features:**
+
 - CSS Grid and Flexbox for layout
 - CSS Custom Properties for theming
 - CSS Animations and Transitions
 - CSS Variables for consistent spacing
 
 **Component Styling:**
+
 - Card-based design system
 - Gradient backgrounds and effects
 - Shadow layers for depth
@@ -86,12 +110,14 @@ This is a modern, AI-powered resume builder with beautiful templates, live previ
 ### JavaScript Enhancements
 
 **Interactive Features:**
+
 - Smooth scrolling navigation
 - Counter animations with Intersection Observer
 - Feature card reveal animations
 - Theme persistence with localStorage
 
 **Performance Optimizations:**
+
 - Debounced scroll events
 - Efficient animation loops
 - Lazy loading considerations
@@ -130,12 +156,14 @@ AI Resume Builder/
 ### Getting Started
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd AI-Resume-Builder
    ```
 
 2. **Open the landing page**
+
    ```bash
    open index.html
    ```
